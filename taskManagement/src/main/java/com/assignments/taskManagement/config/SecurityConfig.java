@@ -1,6 +1,6 @@
 package com.assignments.taskManagement.config;
 
-import com.assignments.taskManagement.security.CustomUserDetailsService;
+import com.assignments.taskManagement.security.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final CustomUserDetailsService customUserDetailsService;
+    private final CustomUserDetailService customUserDetailsService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
