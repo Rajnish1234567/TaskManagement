@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Activity {
+public class Activity extends Audit {
 
     @Id
     private String id;
@@ -22,8 +22,4 @@ public class Activity {
     private String action;
 
     private String details;
-
-    private String ipAddress;
-
-    private Long timestamp;
 }

@@ -1,12 +1,21 @@
 package com.assignments.taskManagement.dto.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.time.Instant;
 
 @Data
 @Builder
-public class ActivityResponse{
+@NoArgsConstructor
+@AllArgsConstructor
+public class ActivityResponse {
+
+    private String id;
+
+    private String userId;
 
     private String userEmail;
 
@@ -14,7 +23,5 @@ public class ActivityResponse{
 
     private String details;
 
-    private String ipAddress;
-
-    private Long timestamp;
+    private Instant createdDate;
 }
