@@ -26,27 +26,17 @@ public class Task extends Audit {
 
     private String userName;
 
+    private String userEmail;
+
 }
 
 
-//
-//├── repository
-//
 //├── service
 //
 //├── controller
-//
-//├── security
-//
-//├── exception
-//│   ├── GlobalExceptionHandler
-//│   ├── ResourceNotFoundException
-//│   └── UnauthorizedException
-//
+
 //├── aspect
 //│   ├── TrackActivity
 //│   └── ActivityLogAspect
 //
 //├── util
-//
-//└── TaskManagementApplication

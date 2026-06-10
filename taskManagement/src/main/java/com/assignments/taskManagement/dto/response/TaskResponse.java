@@ -4,7 +4,7 @@ import com.assignments.taskManagement.enums.TaskStatus;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Data
 @Builder
@@ -20,7 +20,11 @@ public class TaskResponse {
 
     private String userId;
 
-    private LocalDateTime createdAt;
+    private String userName;
 
-    private LocalDateTime updatedAt;
+    private String userEmail;
+
+    private Instant createdDate;
+
+    private Instant lastModifiedDate;
 }

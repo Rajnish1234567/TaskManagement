@@ -5,16 +5,37 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 public class SecurityUtil {
 
-    private SecurityUtil() {
-    }
+    private SecurityUtil() {}
 
-    public static String getCurrentUserEmail() {
+    public static CustomUserDetails getCurrentUser() {
 
         Authentication authentication =
                 SecurityContextHolder
                         .getContext()
                         .getAuthentication();
 
-        return authentication.getName();
+        return (CustomUserDetails)
+                authentication.getPrincipal();
+    }
+
+    public static String getCurrentUserId() {
+
+        return getCurrentUser()
+                .getUser()
+                .getId();
+    }
+
+    public static String getCurrentUserEmail() {
+
+        return getCurrentUser()
+                .getUser()
+                .getEmail();
+    }
+
+    public static String getCurrentUserName() {
+
+        return getCurrentUser()
+                .getUser()
+                .getName();
     }
 }

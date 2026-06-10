@@ -2,13 +2,14 @@ package com.assignments.taskManagement.security;
 
 import com.assignments.taskManagement.entity.User;
 import com.assignments.taskManagement.exception.ResourceNotFoundException;
+import com.assignments.taskManagement.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CustomUserDetailsService
+public class CustomUserDetailService
         implements UserDetailsService {
 
     private final UserRepository userRepository;

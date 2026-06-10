@@ -26,4 +26,5 @@ public interface TaskRepository
             String userId,
             TaskStatus status,
             Pageable pageable);
+
 }

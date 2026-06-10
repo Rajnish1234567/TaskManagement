@@ -10,6 +10,13 @@ import org.springframework.security.core.context.*;
         import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Service;
 
+//Request Flow
+//1. Receive email/password
+//2. Call AuthenticationManager
+//3. Create SecurityContext
+//4. Store SecurityContext in Session
+//5. Session gets persisted to Red
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
