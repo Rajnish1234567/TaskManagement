@@ -1,9 +1,13 @@
 package com.assignments.taskManagement.config;
 
+import com.assignments.taskManagement.security.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
@@ -15,6 +19,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+    private final CustomUserDetailsService customUserDetailsService;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -25,6 +31,29 @@ public class SecurityConfig {
         return new SessionRegistryImpl();
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration configuration)
+            throws Exception {
+
+        return configuration.getAuthenticationManager();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider
+    authenticationProvider() {
+
+        DaoAuthenticationProvider provider =
+                new DaoAuthenticationProvider();
+
+        provider.setUserDetailsService(
+                customUserDetailsService);
+
+        provider.setPasswordEncoder(
+                passwordEncoder());
+
+        return provider;
+    }
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http) throws Exception {
