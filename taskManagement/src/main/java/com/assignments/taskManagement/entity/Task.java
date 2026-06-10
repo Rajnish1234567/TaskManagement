@@ -30,11 +30,6 @@ public class Task extends Audit {
 
 }
 
-
-//├── service
-//
-//├── controller
-
 //├── aspect
 //│   ├── TrackActivity
 //│   └── ActivityLogAspect
